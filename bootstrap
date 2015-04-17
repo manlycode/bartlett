@@ -4,7 +4,11 @@
 INSTALL_DIR = "~/.bartlett"
 GIT_URL = "https://github.com/collectiveidea/bartlett"
 
-`git clone #{GIT_URL} #{INSTALL_DIR}`
 
+unless File.directory? INSTALL_DIR
+  `git clone #{GIT_URL} #{INSTALL_DIR}`
+end
+
+puts "\n\n\n"
 puts "Add the following to your .bashrc or .zshrc"
 puts "PATH=$PATH:$HOME/.bartlett/bin"

@@ -1,2 +1,5 @@
-bin
+bin/bundler
+bin/gh-auth
+bin/thor
+
 .bundle
