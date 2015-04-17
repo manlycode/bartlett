@@ -1,0 +1,4 @@
+# ruby -e "$(curl -fsSL https://raw.githubusercontent.com/collectiveidea/bartlett/master/install)"
+
+puts "Loaded the bootstrap script"
+
