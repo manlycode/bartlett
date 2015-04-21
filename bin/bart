@@ -12,4 +12,33 @@ EOF
 }
 
 
-display_usage
+add_user_usage() {
+cat <<EOF
+Usage: 
+  bart add-user <github_username>
+EOF
+}
+
+add_user() {
+  gh_username=$1
+
+  if [[ -z "$gh_username" ]]; then
+    add_user_usage
+  else	
+    echo "Adding the github user: ${gh_username}"
+  fi
+}
+
+command=$1
+
+case "$command" in
+  add-user)
+    add_user $2
+    ;;
+  share)
+    echo "Saw share"
+    ;;
+  *)
+    display_usage
+    ;;
+esac
