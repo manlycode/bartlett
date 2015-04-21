@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+require_gh_auth() {
+  command -v gh-auth >/dev/null 2>&1 || { 
+    echo >&2 "Please install github-auth (https://github.com/chrishunt/github-auth)"
+    exit 1; 
+  }
+}
+
 function display_usage() {
 cat << EOF
 Usage:
@@ -29,6 +36,7 @@ add_user() {
   fi
 }
 
+require_gh_auth
 command=$1
 
 case "$command" in
