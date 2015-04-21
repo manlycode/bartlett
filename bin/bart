@@ -1,30 +1,15 @@
-#!/usr/bin/env ruby
-$LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__), "..", "lib")))
+#!/usr/bin/env bash
 
-
-require "rubygems"
-require "bundler/setup"
-require "bartlett/commands/add_user"
-
-USAGE_MESSAGE = <<-MSG
-Usage: bart [--help] <command> [<args>]
+function display_usage() {
+cat << EOF
+Usage:
+  bart <command> [command_args]
 
 Commands:
-  add-user    Authorizes a github user to pair with out
-MSG
-
-cmd = ARGV.shift
-
-if cmd.nil? || cmd == "--help"
-  puts USAGE_MESSAGE
-  exit(0)
-end
+  add-user <github_username>		Authorizes a new user to pair with you
+  share [--channel] [--username]	Shares your ssh information in Slack
+EOF
+}
 
 
-case cmd
-when "add-user"
-  Bartlett::Commands::AddUser.run(ARGV)
-else
-  puts USAGE_MESSAGE
-  exit(0)
-end
+display_usage
