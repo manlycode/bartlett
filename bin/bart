@@ -44,7 +44,7 @@ case "$command" in
     add_user $2
     ;;
   share)
-    echo "Saw share"
+    echo "not yet implemented"
     ;;
   *)
     display_usage
