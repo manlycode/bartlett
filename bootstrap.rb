@@ -1,5 +1,5 @@
 # To bootstrap bartlett, run the following:
-# ruby -e "$(curl -fsSL https://raw.githubusercontent.com/collectiveidea/bartlett/master/bootstrap)"
+# ruby -e "$(curl -fsSL https://raw.githubusercontent.com/collectiveidea/bartlett/master/bootstrap.rb)"
 
 INSTALL_DIR = "~/.bartlett"
 GIT_URL = "https://github.com/collectiveidea/bartlett"
