@@ -30,9 +30,11 @@ sudo dscl . append /Groups/${PAIR_GROUP} GroupMembership ${CURRENT_USERNAME}
 
 sudo chown -R ${PAIR_USERNAME}:${PAIR_GROUP} ${PAIR_HOME}
 
+# Set up the SSH directory
 sudo -u ${PAIR_USERNAME} mkdir -p ${PAIR_HOME}/.ssh
 sudo -u ${PAIR_USERNAME} touch ${PAIR_HOME}/.ssh/authorized_keys
-sudo -u ${PAIR_USERNAME} chmod g+w ${PAIR_HOME}/.ssh/authorized_keys
+sudo -u ${PAIR_USERNAME} chmod 700 ${PAIR_HOME}/.ssh
+sudo -u ${PAIR_USERNAME} chmod 600 ${PAIR_HOME}/.ssh/authorized_keys
 
 sudo chgrp -R pair /Users/${PAIR_USERNAME}/.ssh
 
