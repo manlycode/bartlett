@@ -36,6 +36,12 @@ sudo -u ${PAIR_USERNAME} touch ${PAIR_HOME}/.ssh/authorized_keys
 sudo -u ${PAIR_USERNAME} chmod 700 ${PAIR_HOME}/.ssh
 sudo -u ${PAIR_USERNAME} chmod 600 ${PAIR_HOME}/.ssh/authorized_keys
 
+# Set up the bin directory
+sudo -u ${PAIR_USERNAME} mkdir -p ${PAIR_HOME}/bin
+sudo cp ./bin/ssh.sh ${PAIR_HOME}/bin
+sudo chown ${PAIR_USERNAME}:${PAIR_GROUP} ${PAIR_HOME}/bin/ssh.sh
+sudo -u pair chmod +x ${PAIR_HOME}/bin/ssh.sh
+
 sudo chgrp -R pair /Users/${PAIR_USERNAME}/.ssh
 
 echo "Updating sshd_config..."
