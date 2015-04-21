@@ -20,7 +20,7 @@ sudo dscl . create /Users/${PAIR_USERNAME} PrimaryGroupID 1000
 sudo dscl . create /Users/${PAIR_USERNAME} PASSWORD
 sudo dscl . create /Users/${PAIR_USERNAME} NFSHomeDirectory ${PAIR_HOME}
 
-echo "\n\nCreating the group ${PAIR_GROUP}"
+echo "Creating the group ${PAIR_GROUP}"
 sudo dscl . create /Groups/${PAIR_GROUP}
 sudo dscl . create /Groups/${PAIR_GROUP} RealName ${PAIR_GROUP}
 sudo dscl . create /Groups/${PAIR_GROUP} passwd "*"
