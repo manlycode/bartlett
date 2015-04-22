@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-AUTHORIZED_KEYS_PATH="/Users/pair/.ssh/authorized_keys"
-SSH_LOGIN_COMMAND="~/bin/ssh.sh"
-PAIR_USERNAME="pair"
+source ./env.sh
 
 require_gh_auth() {
   command -v gh-auth >/dev/null 2>&1 || { 

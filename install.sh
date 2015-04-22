@@ -1,11 +1,7 @@
 #!/bin/bash
 
-PAIR_USERNAME=${PAIR_USERNAME:-"pair"}
-PAIR_FULL_NAME=${PAIR_FULL_NAME:-"Garry Pair"}
-PAIR_HOME="/Users/${PAIR_USERNAME}"
+source ./env.sh
 
-PAIR_GROUP=${PAIR_GROUP:-"pair"}
-CURRENT_USERNAME=`whoami`
 
 echo "Installing github-auth..."
 bundle install --binstubs
