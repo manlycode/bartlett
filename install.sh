@@ -39,6 +39,11 @@ sudo chown ${PAIR_USERNAME}:${PAIR_GROUP} ${PAIR_HOME}/bin/start_tmux.sh
 sudo -u pair chmod +x ${PAIR_HOME}/bin/start_tmux.sh
 
 sudo chgrp -R pair /Users/${PAIR_USERNAME}/.ssh
+# Set up the user's image
+USER_IMAGE=${PAIR_HOME}/pear.png
+sudo cp ./pear.png ${USER_IMAGE}
+sudo chown ${PAIR_USERNAME}:${PAIR_GROUP} ${USER_IMAGE}
+sudo dscl . create /Users/${PAIR_USERNAME} Picture "${USER_IMAGE}"
 
 echo "Updating sshd_config..."
 sudo sed -E -i.bak 's/^#?(PasswordAuthentication|ChallengeResponseAuthentication).*$/\1 no/' /etc/sshd_config
