@@ -2,10 +2,6 @@
 
 source ./env.sh
 
-
-echo "Installing github-auth..."
-bundle install --binstubs
-
 echo "Creating the user ${PAIR_USERNAME}..."
 sudo mkdir ${PAIR_HOME}
 sudo dscl . create /Users/${PAIR_USERNAME}
