@@ -27,6 +27,7 @@ sudo -u ${PAIR_USERNAME} mkdir -p ${PAIR_HOME}/.ssh
 sudo -u ${PAIR_USERNAME} touch ${PAIR_HOME}/.ssh/authorized_keys
 sudo -u ${PAIR_USERNAME} chmod 700 ${PAIR_HOME}/.ssh
 sudo -u ${PAIR_USERNAME} chmod 600 ${PAIR_HOME}/.ssh/authorized_keys
+sudo chgrp -R pair /Users/${PAIR_USERNAME}/.ssh
 
 # Set up the bin directory
 sudo -u ${PAIR_USERNAME} mkdir -p ${PAIR_HOME}/bin
@@ -34,7 +35,6 @@ sudo cp ./bin/start_tmux.sh ${PAIR_HOME}/bin
 sudo chown ${PAIR_USERNAME}:${PAIR_GROUP} ${PAIR_HOME}/bin/start_tmux.sh
 sudo -u pair chmod +x ${PAIR_HOME}/bin/start_tmux.sh
 
-sudo chgrp -R pair /Users/${PAIR_USERNAME}/.ssh
 # Set up the user's image
 USER_IMAGE=${PAIR_HOME}/pear.png
 sudo cp ./pear.png ${USER_IMAGE}
