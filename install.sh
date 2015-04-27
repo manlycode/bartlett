@@ -44,6 +44,7 @@ sudo dscl . create /Users/${PAIR_USERNAME} Picture "${USER_IMAGE}"
 echo "Updating sshd_config..."
 sudo sed -E -i.bak 's/^#?(PasswordAuthentication|ChallengeResponseAuthentication).*$/\1 no/' /etc/sshd_config
 
-echo "Symlinking default socket file.."
-sudo ln ~/.tmux.socket ${PAIR_HOME}/.tmux.socket
-sudo chown ${CURRENT_USERNAME}:${PAIR_GROUP} ${PAIR_HOME}/.tmux.socket
+echo "Creating socket file"
+mkdir /var/tmp/tmux
+chgrp pair /var/tmp/tmux
+chmod g+ws /var/tmp/tmux
