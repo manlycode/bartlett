@@ -1,6 +1,4 @@
-#!/bin/bash
-
-tmux start-server
-tmux new-session -d -s pair
-tmux send-keys -t pair "tmux choose-session" C-m
-tmux attach-session -t pair
+# Start Tmux and show select menu
+$(which tmux) -S /var/tmp/tmux/pair new-session -d -s choose-menu
+$(which tmux) -S /var/tmp/tmux/pair send-keys -t choose-menu "\$(which tmux) choose-session" C-m
+$(which tmux) -S /var/tmp/tmux/pair attach-session -t choose-menu

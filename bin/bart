@@ -35,7 +35,7 @@ add_user() {
     add_user_usage
   else	
     echo "Adding the github user: ${gh_username} to ${AUTHORIZED_KEYS_PATH}"
-    sudo -u ${PAIR_USERNAME} gh-auth add --users=${gh_username} --path=${AUTHORIZED_KEYS_PATH} --command="${SSH_LOGIN_COMMAND}"
+    sudo -u ${PAIR_USERNAME} gh-auth add --users=${gh_username} --path=${AUTHORIZED_KEYS_PATH}
   fi
 }
 

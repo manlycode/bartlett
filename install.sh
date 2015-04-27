@@ -30,10 +30,9 @@ sudo -u ${PAIR_USERNAME} chmod 600 ${PAIR_HOME}/.ssh/authorized_keys
 sudo chgrp -R pair /Users/${PAIR_USERNAME}/.ssh
 
 # Set up the bin directory
-sudo -u ${PAIR_USERNAME} mkdir -p ${PAIR_HOME}/bin
-sudo cp ./bin/start_tmux.sh ${PAIR_HOME}/bin
-sudo chown ${PAIR_USERNAME}:${PAIR_GROUP} ${PAIR_HOME}/bin/start_tmux.sh
-sudo -u pair chmod +x ${PAIR_HOME}/bin/start_tmux.sh
+sudo cp ./bin/start_tmux.sh ${PAIR_HOME}/.bash_profile
+sudo chown ${PAIR_USERNAME}:${PAIR_GROUP} ${PAIR_HOME}/.bash_profile
+sudo -u pair chmod +x ${PAIR_HOME}/.bash_profile
 
 # Set up the user's image
 USER_IMAGE=${PAIR_HOME}/pear.png
