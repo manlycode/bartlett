@@ -20,7 +20,6 @@ Commands:
 EOF
 }
 
-
 add_user_usage() {
 cat <<EOF
 Usage: 
@@ -39,6 +38,22 @@ add_user() {
   fi
 }
 
+share() {
+  echo "External:"
+  echo "     ${PAIR_USERNAME}@`external_ip`"
+
+  echo "Internal:"
+    internal_ips | tr "\n" "\n    pair@"
+}
+
+external_ip() {
+  dig +short myip.opendns.com @resolver1.opendns.com
+}
+
+internal_ips() {
+  ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'
+}
+
 require_gh_auth
 command=$1
 
@@ -47,7 +62,7 @@ case "$command" in
     add_user $2
     ;;
   share)
-    echo "not yet implemented"
+    share
     ;;
   *)
     display_usage
